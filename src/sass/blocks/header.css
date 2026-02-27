@@ -1,0 +1,11 @@
+@use "src/sass/base/variables.scss" as *;
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.burger span {
+  width: 20px;
+  height: 1px;
+  background-color: #fff;
+}
