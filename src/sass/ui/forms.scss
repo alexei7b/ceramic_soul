@@ -1,0 +1,23 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.touch{
+    .just-validate-error-field{
+        border: none;
+        outline: 1px solid $ui-error;
+    }
+}
+
+.footer{
+    .just-validate-error-field {
+		border-bottom: 1px solid $ui-error;
+		outline: transparent;
+		&::placeholder {
+			color: $ui-error;
+		}
+	}
+    .footer-error-message, .footer-error-checkbox-message{
+        padding-top: 10px;
+        font-weight: 500;
+    }
+}
+

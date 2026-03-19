@@ -1,0 +1,23 @@
+@use "/src/sass/base/variables.scss"
+.works {
+  padding-top: 60px;
+  padding-bottom: 100px;
+  __slider {
+    margin-top: 40px;
+    padding-bottom: 45px;
+  }
+  .swiper-slide img {
+    width: 100%;
+  }
+  .swiper-button-prev, .swiper-button-next {
+    display: none;
+  }
+  .swiper-pagination {
+    bottom: 0px;
+  }
+  .swiper-pagination-bullet {
+    background-color: red;
+    width: 10px;
+    height: 10px;
+  }
+}

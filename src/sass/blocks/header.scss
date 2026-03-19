@@ -28,6 +28,81 @@
     &__nav{
         display: none;
     }
+    &__menu{
+        padding: 50px 10px;
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background-color: $light;        
+        transition: all .4s;
+        opacity: 0;
+        z-index: 10;
+        &-active{             
+            transform: translateX(100%);
+            opacity: 1;            
+        }
+        &-close{
+            width: 20px;
+            height: 20px;
+            position: relative; // добавить
+            cursor: pointer;
+            span{
+                display: block;
+                position: absolute; // добавить
+                top: 50%; // центрируем
+
+                        /*
+                    Что происходит:
+
+                    Оба <span> — это блочные элементы (display: block)
+                    Они располагаются друг под другом (как обычные блоки)
+                    Первый span занимает своё место
+                    Второй span идёт ниже первого
+                    Когда вы применяете transform: rotate(), они поворачиваются вокруг своего центра, но остаются на разных уровнях
+                    Результат: они не пересекаются в одной точке → кривой крестик ❌
+
+                            **Что происходит:**
+                    - Оба `<span>` **вырываются из потока документа**
+                    - Они больше не занимают места друг под другом
+                    - Оба позиционируются **в одной точке**: `top: 50%` (центр родителя)
+                    - Теперь они **накладываются друг на друга** в одной точке
+                    - Когда применяется `rotate(45deg)` и `rotate(-45deg)`, они поворачиваются **вокруг одной точки**
+                    - Результат: идеальное пересечение → ровный крестик ✅
+                    */
+                width: 20px;
+                height: 1px;
+                background-color: $dark;
+                &:nth-child(1){
+                    transform: translateY(8px) rotate(45deg);
+                }
+                &:nth-child(2){
+                    transform: translateY(8px) rotate(-45deg);
+                }
+            }
+        }
+
+        &-nav{
+            margin-top: 50px;
+            padding-left: 14px;
+            
+            ul{
+                display: flex;
+                flex-direction: column;
+                row-gap: 20px;
+                padding: 0;
+                list-style-type: none;
+            }
+        }
+        &-link{
+            font-weight: 400;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: $dark;
+            text-decoration: none;
+        }
+    }
     
 }
 .burger{
@@ -46,6 +121,9 @@
 
 @media screen and (min-width: 768px){
     .header{
+        &__menu{
+            display: none;
+        }
         &__nav{
             margin-top: 20px;
             display: block;

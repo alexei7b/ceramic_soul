@@ -1,0 +1,21 @@
+.blog {
+  margin-top: 50px;
+}
+
+.blog__title {
+  margin-top: 60px;
+}
+
+.blog__title-h3 {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.blog__wrapper {
+  margin-top: 60px;
+}
+
+.blog__card {
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+  background: #fafafa;
+}
